@@ -223,6 +223,37 @@
     }
   };
 
+  //Get phone OS
+  v.getPhoneOS = function() {
+    var type = navigator.userAgent;
+    var isAndroid = type.indexOf('Android') > -1 || type.indexOf('Adr') > -1;
+    var isIOS = !!type.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+    return  !isAndroid
+      ? isIOS
+        ? alert('ios')
+        : alert(undefined)
+    : alert('android');
+  }
+
+  //Get browser type
+  v.getBrowserType = function() {
+    var commonBrowserArr = ['chrome', 'firefox', 'opera', 'safari', 'ie'];  //Common browser
+
+    var userAgent = navigator.userAgent;
+    for(var i = 0; i < commonBrowserArr.length; i++) {
+      if(i <= commonBrowserArr.length && navigator.userAgent.toLowerCase().indexOf(commonBrowserArr[i]) > -1) {
+        return commonBrowserArr[i];
+      }
+
+      if(i === commonBrowserArr.length) {
+        return userAgent;
+      } else {
+        continue;
+      }
+    }
+    i = null;
+  }
 
 
   //TODO 更多的方法正在陆续的加入中

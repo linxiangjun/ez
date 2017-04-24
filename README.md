@@ -113,3 +113,20 @@
 
 	ez.getURLParam('name');  //coder
 	ez.getURLParam('ps');  //love
+
+**9、获取手机型号**
+
+返回手机型号为Android或IOS，否则返回undefined
+
+    ez.getPhoneOS()
+
+	//Android
+	//IOS
+
+**10、获取浏览器型号**
+
+预先存储了常见的浏览器型号(chrome、firefox、opera、safari、ie)，也可以DIY更多的型号，将会在匹配到该浏览器的userAgent后返回对应的浏览器型号，如果为未知的型号，将返回所有的userAgent信息
+
+	ez.getBrowserType()
+
+	
