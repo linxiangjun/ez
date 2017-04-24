@@ -104,3 +104,12 @@
 清除
 
 	ez.clearLocalStorage()
+
+**8、 获取url传递的值**
+
+    ez.getURLParam(value)
+
+	http://www.demo.com/index?name=coder&ps=love
+
+	ez.getURLParam('name');  //coder
+	ez.getURLParam('ps');  //love

@@ -146,7 +146,7 @@
   //Solve thousands of values
   v.status = function(ret) {
     var arr = ['status', 'code'];  //input a response stauts
-    var reg = new RegExp("([0]|success|true)", "gi");  //input a RegExp response status's value
+    var reg = new RegExp("(^[+]?[0-1]|success|true)", "gi");  //input a RegExp response status's value
 
     for(var i = 0; i < arr.length; i++) {
       if(ret.hasOwnProperty(arr[i])) {
@@ -222,6 +222,8 @@
       return null;
     }
   };
+
+
 
   //TODO 更多的方法正在陆续的加入中
 
