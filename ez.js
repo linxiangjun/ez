@@ -14,6 +14,7 @@
 
   var mobileReg = new RegExp('^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$');
   var idCardReg = new RegExp('^([0-9]{17})[X|x|0-9]{1}$');
+  var emailReg = new RegExp('^(\\w)+(\\.\\w+)*@(\\w)+((\\.\\w+)+)$');
 
   function isNumber(num) {
     if(!isNaN(num) && num.__proto__ === Number.prototype) {
@@ -121,9 +122,8 @@
 
   //Ascending array or Descending array
   v.orderBy = function(arr, act) {
-    if(isArray(arr)) {
+    if(isArray(arr) && act) {
       if (!!act.match(/(asc)|(ASC)/)) {
-
         return quickSort(arr);
       } else if(!!act.match(/(desc)|(DESC)/)) {
         return quickSort(arr).reverse();
@@ -160,12 +160,16 @@
   };
 
   v.isMobile = function(phone) {
-      return !!phone.toString().match(mobileReg);
+    return !!phone.toString().match(mobileReg);
   };
 
   v.isIdCard = function(id) {
-      return !!id.toString().match(idCardReg);
+    return !!id.toString().match(idCardReg);
   };
+
+  v.isEmail = function(name) {
+
+  }
 
   //Set cookie
   v.setCookie = function(name, value, days) {
@@ -255,6 +259,12 @@
     i = null;
   }
 
+  //Display all border elements in the page
+  v.showAllBorders = function() {
+    [].forEach.call($$("*"), function(a) {
+      a.style.outline = "1px solid #" + (~~(Math.random()*(1<<24))).toString(16)
+    })
+  };
 
   //TODO 更多的方法正在陆续的加入中
 
