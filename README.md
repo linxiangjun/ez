@@ -129,4 +129,10 @@
 
 	ez.getBrowserType()
 
-	
+**11、展示所有元素的边框**
+
+一个很炫酷的效果
+
+	ez.showAllBorders()
+
+
