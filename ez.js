@@ -262,7 +262,7 @@
   //Display all border elements in the page
   v.showAllBorders = function() {
     [].forEach.call($$("*"), function(a) {
-      a.style.outline = "1px solid #" + (~~(Math.random()*(1<<24))).toString(16)
+      a.style.outline = "1px solid #" + (~~(Math.random()*(1<<24))).toString(16);
     })
   };
 
