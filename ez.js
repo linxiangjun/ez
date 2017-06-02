@@ -272,7 +272,7 @@
   }
 
   //Get browser window height
-  v.getWindowHeight = function(value) {
+  v.getBrowserHeight = function(value) {
     value = value || 300;
     let width = document.body.scrollWidth;
     let height = document.body.scrollHeight;
