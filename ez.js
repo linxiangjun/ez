@@ -1,5 +1,5 @@
 /*
-  Ez.js library
+  Ez.js library  version 0.0.12
   Released under the MIT license
 
   author: LXJ
