@@ -168,7 +168,7 @@
   };
 
   v.isEmail = function(name) {
-
+    
   }
 
   //Set cookie
@@ -233,7 +233,7 @@
     var isAndroid = type.indexOf('Android') > -1 || type.indexOf('Adr') > -1;
     var isIOS = !!type.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
 
-    return  !isAndroid
+    return !isAndroid
       ? isIOS
         ? alert('ios')
         : alert(undefined)
@@ -266,9 +266,20 @@
     })
   };
 
-  //Convert to JSON and print 
+  //Convert to JSON String and print 
   v.printJ = function(value) {
     console.log(JSON.stringify(value));
+  }
+
+  //Get browser window height
+  v.getWindowHeight = function(value) {
+    value = value || 300;
+    let width = document.body.scrollWidth;
+    let height = document.body.scrollHeight;
+    
+    return (width < 768)
+      ? value + 'px'
+      : (height - 60) + 'px';
   }
 
   //TODO 更多的方法正在陆续的加入中
