@@ -287,12 +287,12 @@
     if(obj instanceof Object && obj.constructor === Object) {
       for (name in obj) {
         if (obj[name]) {
-          return true;
+          return false;
         }
       }
-      return false;
+      return true;
     } else {
-      return false;
+      return true;
     }
   }
 
