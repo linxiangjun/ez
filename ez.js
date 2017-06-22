@@ -1,10 +1,10 @@
 /*
-  Ez.js library  version 0.0.12
-  Released under the MIT license
+ Ez.js library  version 0.0.12
+ Released under the MIT license
 
-  author: LXJ
-  date: 2017.4.19
-*/
+ author: LXJ
+ date: 2017.4.19
+ */
 
 (function(window, undefined) {
 
@@ -81,7 +81,7 @@
     var pivot = arr.splice(pivotIndex, 1)[0];
 
     var left = [],
-        right = [];
+      right = [];
 
     for(var i = 0; i < arr.length; i++) {
       if(arr[i] < pivot) {
@@ -168,7 +168,7 @@
   };
 
   v.isEmail = function(name) {
-    
+
   }
 
   //Set cookie
@@ -237,7 +237,7 @@
       ? isIOS
         ? alert('ios')
         : alert(undefined)
-    : alert('android');
+      : alert('android');
   }
 
   //Get browser type
@@ -266,7 +266,7 @@
     })
   };
 
-  //Convert to JSON String and print 
+  //Convert to JSON String and print
   v.printJ = function(value) {
     console.log(JSON.stringify(value));
   }
@@ -276,10 +276,24 @@
     value = value || 300;
     let width = document.body.scrollWidth;
     let height = document.body.scrollHeight;
-    
+
     return (width < 768)
       ? value + 'px'
       : (height - 60) + 'px';
+  }
+
+  //Whether the object is empty
+  v.isObjEmpty = function(obj) {
+    if(obj instanceof Object && obj.constructor === Object) {
+      for (name in obj) {
+        if (obj[name]) {
+          return true;
+        }
+      }
+      return false;
+    } else {
+      return false;
+    }
   }
 
   //TODO 更多的方法正在陆续的加入中
