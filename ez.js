@@ -297,7 +297,7 @@
   }
 
   //A key print debug information
-  v.aKeyPrint = function(value, obj) {
+  v.oneKeyPrint = function(value, obj) {
     console.group('debug')
     type === 'json' ? console.log(JSON.stringify(value)) : console.log(value);
     console.groupEnd();
