@@ -294,6 +294,19 @@
     }
   }
 
+  // Reload IOS wechat page
+  v.reloadIOSWechatPage = function() {
+    var isPageHide = false; 
+    window.addEventListener('pageshow', function () { 
+      if (isPageHide) { 
+        window.location.reload(); 
+      } 
+    }); 
+    window.addEventListener('pagehide', function () { 
+      isPageHide = true; 
+    }); 
+  }
+
   //TODO 更多的方法正在陆续的加入中
 
   window.ez = v;
