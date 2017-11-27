@@ -307,6 +307,11 @@
     }); 
   }
 
+  // Convert an Array-like object to a real Array
+  v.toRealArray = function(arr) {
+    return Array.prototype.slice.call(arr);
+  }
+
   //TODO 更多的方法正在陆续的加入中
 
   window.ez = v;
