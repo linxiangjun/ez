@@ -147,4 +147,8 @@
 
 	ez.isObjEmpty(obj)  //返回true，表示为空，否则不为空
 
+**13、转换类数组为数组**
+
+	ez.toRealArray(arr)
+
 
