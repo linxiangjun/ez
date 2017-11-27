@@ -12,41 +12,22 @@
 
   var v = Object.create(null);
 
-  var mobileReg = new RegExp('^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$');
-  var idCardReg = new RegExp('^([0-9]{17})[X|x|0-9]{1}$');
-  var emailReg = new RegExp('^(\\w)+(\\.\\w+)*@(\\w)+((\\.\\w+)+)$');
-
-  function isNumber(num) {
-    if(!isNaN(num) && num.__proto__ === Number.prototype) {
-      return num;
-    } else {
-      return false;
+  var mobileReg = new RegExp('^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$'),
+      dCardReg = new RegExp('^([0-9]{17})[X|x|0-9]{1}$'),
+      emailReg = new RegExp('^(\\w)+(\\.\\w+)*@(\\w)+((\\.\\w+)+)$'),
+      toString = Object.prototype.toString;
+  
+  var isType = function (type) {
+    return function(obj) {
+      return toString.call(obj) == '[object ' + type + ']';
     }
   }
 
-  function isArray(arr) {
-    if(arr instanceof Array && arr.constructor === Array) {
-      if(arr.length !== 0) {
-        return arr;
-      } else {
-        return null;
-      }
-    } else {
-      return false;
-    }
-  }
-
-  function isObject(obj) {
-    if(obj instanceof Object && obj.constructor === Object) {
-      if(JSON.stringify(obj) !== '{}') {
-        return obj;
-      } else {
-        return null;
-      }
-    } else {
-      return false;
-    }
-  }
+  var isString = isType('String'),
+      isNumber = isType('Number'),
+      isArray = isType('Array'),
+      isObject = isType('Object'),
+      isFunction = isType('Function');
 
   //Create a object array
   var createNewArray = function(obj, item, val) {
@@ -299,8 +280,31 @@
   //A key print debug information
   v.oneKeyPrint = function(value, obj) {
     console.group('debug')
-    type === 'json' ? console.log(JSON.stringify(value)) : console.log(value);
+    obj === 'json' ? console.log(JSON.stringify(value)) : console.log(value);
     console.groupEnd();
+  }
+
+  //Deep copy
+  v.deepCopy = function(target) {
+    if(isNumber(target) || isArray(target) || isString(target)) {
+      return JSON.parse(JSON.stringify(target));
+    } else {
+      console.warn('Please input number|array|string type');
+      return false;
+    }
+  }
+
+  // Reload IOS wechat page
+  v.reloadIOSWechatPage = function() {
+    var isPageHide = false; 
+    window.addEventListener('pageshow', function () { 
+      if (isPageHide) { 
+        window.location.reload(); 
+      } 
+    }); 
+    window.addEventListener('pagehide', function () { 
+      isPageHide = true; 
+    }); 
   }
 
   //TODO 更多的方法正在陆续的加入中
