@@ -296,6 +296,13 @@
     }
   }
 
+  //A key print debug information
+  v.oneKeyPrint = function(value, obj) {
+    console.group('debug')
+    type === 'json' ? console.log(JSON.stringify(value)) : console.log(value);
+    console.groupEnd();
+  }
+
   //TODO 更多的方法正在陆续的加入中
 
   window.ez = v;
