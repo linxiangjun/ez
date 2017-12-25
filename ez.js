@@ -1,5 +1,5 @@
 /*
- Ez.js library  version 0.0.12
+ Ez.js library version 1.0.0
  Released under the MIT license
 
  author: LXJ
@@ -310,6 +310,12 @@
   // Convert an Array-like object to a real Array
   v.toRealArray = function(arr) {
     return Array.prototype.slice.call(arr);
+  }
+
+  // Get date(y-m-d)
+  v.getDate = function() {
+    var date = new Date();
+    return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
   }
 
   //TODO 更多的方法正在陆续的加入中
