@@ -151,4 +151,6 @@
 
 	ez.toRealArray(arr)
 
+**14、获取当前日期，格式y-m-d**
 
+	ez.getDate()
