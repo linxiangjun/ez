@@ -6,7 +6,7 @@
  date: 2017.4.19
  */
 
-(function(window, undefined) {
+(function(w, undefined) {
 
   "use strict";
 
@@ -315,11 +315,14 @@
   // Get date(y-m-d)
   v.getDate = function() {
     var date = new Date();
-    return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate();
+    return date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate();
   }
 
   //TODO 更多的方法正在陆续的加入中
 
-  window.ez = v;
-
-})(window);
+  if (typeof exports !== "undefined") {
+    exports.ez = v;
+  } else {
+    w.ez = v;
+  }
+}(typeof global !== "undefined" ? global : this));
