@@ -318,6 +318,21 @@
     return date.getFullYear() + '-' + date.getMonth() + 1 + '-' + date.getDate();
   }
 
+  // 防抖动：限定执行函数的时间间隔
+  v.debounce = function(fn, delay) {
+    var time = null;
+
+    return function() {
+      var content = this,
+          args = arguments;
+      
+      clearTimeout(time);
+      time = setTimeout(function() {
+        fn.apply(content, args);
+      }, delay);
+    }
+  }
+
   //TODO 更多的方法正在陆续的加入中
 
   if (typeof exports !== "undefined") {
