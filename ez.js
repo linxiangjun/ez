@@ -12,7 +12,7 @@
 
   var v = Object.create(null);
 
-  var mobileReg = new RegExp('^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$'),
+  var mobileReg = new RegExp('^1[345789]\d{9}$'),
       dCardReg = new RegExp('^([0-9]{17})[X|x|0-9]{1}$'),
       emailReg = new RegExp('^(\\w)+(\\.\\w+)*@(\\w)+((\\.\\w+)+)$'),
       toString = Object.prototype.toString;
