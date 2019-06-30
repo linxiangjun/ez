@@ -263,37 +263,13 @@
       : (height - 60) + 'px';
   }
 
-  //Whether the object is empty
-  v.isObjEmpty = function(obj) {
-    if(obj instanceof Object && obj.constructor === Object) {
-      for (name in obj) {
-        if (obj[name]) {
-          return false;
-        }
-      }
-      return true;
-    } else {
-      return true;
-    }
-  }
-
   //A key print debug information
   v.oneKeyPrint = function(value, obj) {
     console.group('debug')
     obj === 'json' ? console.log(JSON.stringify(value)) : console.log(value);
     console.groupEnd();
   }
-
-  //Deep copy
-  v.deepCopy = function(target) {
-    if(isNumber(target) || isArray(target) || isString(target)) {
-      return JSON.parse(JSON.stringify(target));
-    } else {
-      console.warn('Please input number|array|string type');
-      return false;
-    }
-  }
-
+ 
   // Reload IOS wechat page
   v.reloadIOSWechatPage = function() {
     var isPageHide = false; 
